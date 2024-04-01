@@ -1,17 +1,35 @@
-#Pizarra (Whiteboard)
+#Whiteboard
 
-def calcular_iva(subtotal, porcentaje_iva = 12):
-    valor_iva = (subtotal * porcentaje_iva) / 100
-    return valor_iva
+# Crea un nuevo archivo llamado my_notes.txt.
+my_notes = open('my_notes.txt', 'w')
 
-monto_subtotal = 100
-monto_iva = calcular_iva(monto_subtotal)
-monto_total = monto_subtotal + monto_iva
-print(f'Monto Total: {monto_total}')
+# Método write(): escribir una línea a la vez
+my_notes.write("Línea 1: Esto es una prueba.\n")
+my_notes.write("Línea 2: Escribiendo en archivos con Python.\n")
+
+# Método writelines(): escribir una lista de líneas
+lineas = ["Línea 3: Otro ejemplo.\n", "Línea 4: Finalizando el ejemplo.\n"]
+my_notes.writelines(lineas)
 
 
-monto_subtotal = 100
-porcentaje_iva = 5
-monto_iva = calcular_iva(monto_subtotal, porcentaje_iva)
-monto_total = monto_subtotal + monto_iva
-print(f'Monto Total: {monto_total}')
+
+# Abre el archivo my_notes.txt.
+my_notes = open("my_notes", "r")
+
+#Lee el contenido del archivo línea por línea utilizando el método adecuado.
+
+# Metodo 1. read()
+print("Metodo 1. read()")
+print('--------------------')
+print(my_notes.read())
+my_notes.close()
+
+# Método 2. readlines()
+my_notes = open('my_notes.txt', 'r')
+print('Método 2: readlines()')
+print('--------------------')
+for linea in my_notes.readlines():
+    print(linea.rstrip('\n'))
+my_notes.close()
+
+
